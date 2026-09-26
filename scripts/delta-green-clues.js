@@ -127,12 +127,10 @@ Hooks.once("init", () => {
 });
 
 Hooks.once("ready", () => {
-  if (game.system.id !== "deltagreen") return;
   installClueTokenDoubleClick();
   console.info(`${MODULE_ID} | Clue Actor type is ready.`);
 });
 
 Hooks.once("canvasReady", () => {
-  if (game.system.id !== "deltagreen") return;
   installClueTokenDoubleClick();
 });

@@ -1,10 +1,10 @@
-# Delta Green Clues
+# Clues
 
-Delta Green Clues adds **Clue** as a native Actor type in Foundry VTT 14 for the Delta Green system. It lets an ordinary Foundry scene serve as an investigation board: create Clues in the normal Actors directory, link each one to a Journal Entry or Journal Page, then drag them onto any scene as ordinary tokens.
+Clues adds **Clue** as a native Actor type in Foundry VTT 14. It lets an ordinary Foundry scene serve as an investigation board: create Clues in the normal Actors directory, link each one to a Journal Entry or Journal Page, then drag them onto any scene as ordinary tokens.
 
 ## What it does
 
-- Registers a persistent `Clue` Actor subtype without changing Delta Green system files.
+- Registers a persistent `Clue` Actor subtype without changing system files.
 - Provides a compact clue-card sheet with a linked-handout picker and an **Open Handout** control.
 - Uses Foundry’s ordinary Actor ownership, folder, search, duplicate, delete, token, and visibility behaviors.
 - Supports any number of tokens for a clue across any number of scenes.
@@ -25,4 +25,4 @@ Double-clicking a Clue token opens its linked handout instead of the clue-card s
 ## Compatibility
 
 - Foundry VTT 14
-- Delta Green system 2.0.1 or later
+- Any Foundry VTT game system that supports Foundry's standard Actor and Token documents

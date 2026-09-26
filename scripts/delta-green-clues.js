@@ -117,8 +117,33 @@ function installClueTokenDoubleClick() {
   return true;
 }
 
+function installClueCreateDialogType() {
+  const ActorClass = CONFIG.Actor?.documentClass;
+  if (!ActorClass?.createDialog) {
+    console.warn(`${MODULE_ID} | Could not locate the Actor create dialog.`);
+    return false;
+  }
+
+  const wrapped = Symbol.for(`${MODULE_ID}.clueCreateDialogWrapped`);
+  if (ActorClass[wrapped]) return true;
+
+  const originalCreateDialog = ActorClass.createDialog;
+  ActorClass.createDialog = function clueCreateDialog(data = {}, options = {}, dialogOptions = {}) {
+    // Some systems (including PF2e) replace Foundry's default type list when
+    // opening this dialog. Preserve their choices and append our module type.
+    const availableTypes = dialogOptions.types
+      ?? Object.keys(CONFIG.Actor.typeLabels);
+    const types = new Set(availableTypes);
+    types.add(CLUE_TYPE);
+    return originalCreateDialog.call(this, data, options, { ...dialogOptions, types: [...types] });
+  };
+  Object.defineProperty(ActorClass, wrapped, { value: true });
+  return true;
+}
+
 Hooks.once("init", () => {
   CONFIG.Actor.dataModels[CLUE_TYPE] = ClueDataModel;
+  installClueCreateDialogType();
   Actors.registerSheet(MODULE_ID, ClueSheet, {
     types: [CLUE_TYPE],
     makeDefault: true,

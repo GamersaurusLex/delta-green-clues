@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.1 — 2026-09-26
+
+- Fixed the PF2e New Actor dialog so **Clue** appears alongside all normal actor types.
+
 ## 0.2.0 — 2026-09-26
 
 - Made Clues system-agnostic: it can now be enabled in worlds running any supported system.

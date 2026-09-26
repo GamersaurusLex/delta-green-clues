@@ -1,0 +1,11 @@
+{
+  "TYPES.Actor.delta-green-clues.clue": "Clue",
+  "DGCLUES.ActorType": "Clue",
+  "DGCLUES.Sheet.Title": "Clue Card",
+  "DGCLUES.Sheet.Handout": "Linked Handout",
+  "DGCLUES.Sheet.OpenHandout": "Open Handout",
+  "DGCLUES.Sheet.NoHandout": "No handout linked yet.",
+  "DGCLUES.Sheet.SelectHandout": "Select a Journal Entry or Page",
+  "DGCLUES.Sheet.Unlink": "Unlink Handout",
+  "DGCLUES.Sheet.OwnerNote": "Ownership is managed through Foundry's normal Actor permissions."
+}

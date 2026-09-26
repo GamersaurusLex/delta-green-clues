@@ -1,0 +1,33 @@
+<form class="delta-green-clues clue-sheet {{#unless editable}}read-only{{/unless}}" autocomplete="off">
+  <header class="clue-sheet-header">
+    <img class="clue-image" src="{{actor.img}}" data-edit="img" data-tooltip="Change clue image" alt="{{actor.name}}">
+    <div class="clue-title">
+      <p class="clue-kicker">{{localize "DGCLUES.Sheet.Title"}}</p>
+      <input name="name" type="text" value="{{actor.name}}" placeholder="Clue name" {{disabled (not editable)}}>
+    </div>
+  </header>
+
+  <section class="clue-sheet-body">
+    <label class="clue-label" for="clue-handout">{{localize "DGCLUES.Sheet.Handout"}}</label>
+    {{#if editable}}
+      <select id="clue-handout" name="system.linkedJournalUuid">
+        <option value="">{{localize "DGCLUES.Sheet.SelectHandout"}}</option>
+        {{selectOptions journalOptions selected=actor.system.linkedJournalUuid}}
+      </select>
+    {{else}}
+      <p class="clue-linked-name">{{#if linkedJournalName}}{{linkedJournalName}}{{else}}{{localize "DGCLUES.Sheet.NoHandout"}}{{/if}}</p>
+    {{/if}}
+
+    <button type="button" class="clue-open-handout" data-action="openHandout" {{disabled (not linkedJournalUuid)}}>
+      <i class="fa-solid fa-book-open"></i> {{localize "DGCLUES.Sheet.OpenHandout"}}
+    </button>
+
+    {{#if editable}}
+      <button type="button" class="clue-unlink" data-action="unlinkHandout" {{disabled (not linkedJournalUuid)}}>
+        <i class="fa-solid fa-link-slash"></i> {{localize "DGCLUES.Sheet.Unlink"}}
+      </button>
+    {{/if}}
+
+    <p class="hint"><i class="fa-solid fa-circle-info"></i> {{localize "DGCLUES.Sheet.OwnerNote"}}</p>
+  </section>
+</form>

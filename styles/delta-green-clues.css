@@ -1,0 +1,39 @@
+.delta-green-clues.clue-sheet {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  color: var(--color-text-primary, #e5e5e5);
+  background: linear-gradient(145deg, #121714, #202820);
+}
+
+.delta-green-clues .clue-sheet-header {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  padding: 1.25rem;
+  border-bottom: 1px solid #7f896a;
+  background: #252d21;
+}
+
+.delta-green-clues .clue-image {
+  width: 92px;
+  height: 92px;
+  border: 2px solid #8c9872;
+  border-radius: 3px;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.delta-green-clues .clue-title { flex: 1; min-width: 0; }
+.delta-green-clues .clue-kicker { margin: 0 0 .2rem; color: #b8c5a4; font-size: .78rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+.delta-green-clues .clue-title input { width: 100%; height: auto; margin: 0; border: 0; border-bottom: 1px solid #9ca88a; border-radius: 0; background: transparent; color: inherit; font-family: var(--font-primary); font-size: 1.75rem; font-weight: 700; }
+.delta-green-clues .clue-title input:focus { box-shadow: 0 2px 0 #c0cda8; }
+
+.delta-green-clues .clue-sheet-body { display: grid; gap: .75rem; padding: 1.25rem; }
+.delta-green-clues .clue-label { color: #c6d0b6; font-weight: 700; }
+.delta-green-clues .clue-sheet-body select { width: 100%; }
+.delta-green-clues .clue-linked-name { margin: 0; padding: .65rem .75rem; border: 1px solid #68745a; border-radius: 3px; background: #161c15; }
+.delta-green-clues .clue-open-handout { min-height: 3rem; border-color: #9eae80; background: #3e5138; color: #f6f7ec; font-size: 1.05rem; font-weight: 700; }
+.delta-green-clues .clue-open-handout:hover:not(:disabled) { background: #536b49; }
+.delta-green-clues .clue-unlink { justify-self: start; color: #d7ddd0; }
+.delta-green-clues .hint { margin: .5rem 0 0; color: #b7bcaf; font-size: .85rem; }

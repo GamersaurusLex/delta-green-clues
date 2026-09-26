@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.1 — 2026-09-26
+
+- Fixed the published manifest so Foundry and Forge can install the module correctly.
+
 ## 0.1.0 — 2026-09-26
 
 - First prototype of the native Delta Green **Clue** Actor type.

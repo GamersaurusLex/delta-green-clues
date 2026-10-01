@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.25 — 2026-10-01
+
+- Swapped the Dashboard's Journal ownership and Token visibility columns, keeping page ownership beside the page title.
+
 ## 0.3.24 — 2026-10-01
 
 - Aligned each expanded Journal page's ownership status beside its page title in the Dashboard's third column.

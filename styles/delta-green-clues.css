@@ -57,7 +57,7 @@
 .clue-dashboard-selection label { display: inline-flex; align-items: center; gap: .35rem; cursor: pointer; }
 .clue-dashboard-list { border: 1px solid var(--color-border-light-2); border-radius: 4px; overflow: hidden; }
 .clue-dashboard-content > .clue-dashboard-list + .clue-dashboard-list { margin-top: .75rem; }
-.clue-dashboard-list-header, .clue-dashboard-row { display: grid; grid-template-columns: 1.5rem minmax(18rem, 1fr) 8rem 11rem 17rem; gap: .65rem; align-items: center; min-width: 57rem; padding: .55rem .7rem; }
+.clue-dashboard-list-header, .clue-dashboard-row { display: grid; grid-template-columns: 1.5rem minmax(18rem, 1fr) 11rem 8rem 17rem; gap: .65rem; align-items: center; min-width: 57rem; padding: .55rem .7rem; }
 .clue-dashboard-list-header { background: var(--color-cool-5); color: var(--color-text-light-heading); font-size: .78rem; font-weight: 700; text-transform: uppercase; }
 .clue-dashboard-row { border-top: 1px solid var(--color-border-light-2); }
 .clue-dashboard-row:nth-child(odd) { background: color-mix(in srgb, var(--color-cool-5) 18%, transparent); }
@@ -81,9 +81,9 @@
 .mixed-label { margin-left: .35rem; }
 .pages-toggle { width: 100%; text-align: left; white-space: normal; }
 .clue-dashboard-pages { grid-column: 1 / -1; display: grid; gap: .3rem; margin: .1rem 0; padding: .5rem .7rem; border-top: 1px solid var(--color-border-light-2); }
-.clue-dashboard-page { display: grid; grid-template-columns: 1.5rem minmax(18rem, 1fr) 8rem 11rem 17rem; gap: .65rem; align-items: center; min-width: 57rem; }
+.clue-dashboard-page { display: grid; grid-template-columns: 1.5rem minmax(18rem, 1fr) 11rem 8rem 17rem; gap: .65rem; align-items: center; min-width: 57rem; }
 .clue-dashboard-additional h3 { margin: 0; padding: .6rem .7rem; background: var(--color-cool-5); font-size: .9rem; }
-.clue-dashboard-additional .additional-row { grid-template-columns: 1.5rem minmax(18rem, 1fr) 8rem 11rem 17rem; }
+.clue-dashboard-additional .additional-row { grid-template-columns: 1.5rem minmax(18rem, 1fr) 11rem 8rem 17rem; }
 .clue-dashboard-empty { padding: .75rem; border: 1px dashed var(--color-border-light-2); }
 
 @media (max-width: 700px) {

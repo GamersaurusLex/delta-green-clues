@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.21 — 2026-10-01
+
+- Made the Clue Dashboard's clue list independently scrollable while keeping its audience selector and bulk-action controls visible.
+
 ## 0.3.20
 
 - Added the GM-only Clue Dashboard for marked Murderboard scenes. It bulk-manages clue-token visibility and Journal Entry/Page ownership using Foundry's native ownership levels.

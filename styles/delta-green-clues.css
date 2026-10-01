@@ -43,7 +43,7 @@
 .clue-classification-palette .classification-witness i { color: #45a6e8; }
 .clue-classification-palette .classification-victim i { color: #f3cf45; }
 
-.clue-dashboard-shell { display: grid; gap: .75rem; padding: .75rem; }
+.clue-dashboard-shell { display: grid; grid-template-rows: auto auto minmax(0, 1fr); gap: .75rem; height: 100%; min-height: 0; box-sizing: border-box; padding: .75rem; }
 .clue-dashboard-header { display: flex; justify-content: space-between; align-items: start; gap: 1rem; }
 .clue-dashboard-header h2 { margin: 0; }
 .clue-dashboard-header .hint { margin: .25rem 0 0; }
@@ -52,7 +52,9 @@
 .clue-dashboard-actions .action-group { display: flex; flex-wrap: wrap; align-items: center; gap: .3rem; }
 .clue-dashboard-actions .action-group > span { width: 11rem; color: var(--color-text-light-heading); font-size: .82rem; font-weight: 700; }
 .clue-dashboard-actions button { min-height: 1.75rem; padding: .2rem .45rem; font-size: .78rem; }
+.clue-dashboard-content { min-height: 0; overflow-y: auto; scrollbar-gutter: stable; }
 .clue-dashboard-list { border: 1px solid var(--color-border-light-2); border-radius: 4px; overflow: hidden; }
+.clue-dashboard-content > .clue-dashboard-list + .clue-dashboard-list { margin-top: .75rem; }
 .clue-dashboard-list-header, .clue-dashboard-row { display: grid; grid-template-columns: minmax(18rem, 2fr) minmax(6rem, .7fr) minmax(8rem, .9fr) minmax(12rem, 1.3fr); gap: .65rem; align-items: center; padding: .55rem .7rem; }
 .clue-dashboard-list-header { background: var(--color-cool-5); color: var(--color-text-light-heading); font-size: .78rem; font-weight: 700; text-transform: uppercase; }
 .clue-dashboard-row { border-top: 1px solid var(--color-border-light-2); }

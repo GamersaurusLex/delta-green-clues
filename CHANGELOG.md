@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.29 — 2026-10-01
+
+- Preserve the Clue Dashboard's scroll position across every Dashboard rerender, including Journal and page ownership changes.
+
 ## 0.3.28 — 2026-10-01
 
 - Keep Open Handout enabled on read-only Clue Sheets when a linked Journal exists, while retaining Foundry's normal read-only behavior for every editable control.

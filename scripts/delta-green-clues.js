@@ -1072,6 +1072,12 @@ class ClueDashboard extends HandlebarsApplicationMixin(ApplicationV2) {
     this.contentScrollTop = null;
   }
 
+  async render(options = {}, legacyOptions = {}) {
+    const content = this.element?.querySelector(".clue-dashboard-content");
+    if (content) this.contentScrollTop = content.scrollTop;
+    return super.render(options, legacyOptions);
+  }
+
   async _prepareContext() {
     const rows = [];
     const linkedJournalIds = new Set();
@@ -1162,7 +1168,6 @@ class ClueDashboard extends HandlebarsApplicationMixin(ApplicationV2) {
 
   static async togglePages(_event, target) {
     const id = target.dataset.entryId;
-    this.contentScrollTop = this.element.querySelector(".clue-dashboard-content")?.scrollTop ?? 0;
     this.expandedEntries.has(id) ? this.expandedEntries.delete(id) : this.expandedEntries.add(id);
     await this.render();
   }

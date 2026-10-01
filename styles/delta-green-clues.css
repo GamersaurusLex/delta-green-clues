@@ -37,3 +37,53 @@
 .delta-green-clues .clue-open-handout:hover:not(:disabled) { background: #536b49; }
 .delta-green-clues .clue-unlink { justify-self: start; color: #d7ddd0; }
 .delta-green-clues .hint { margin: .5rem 0 0; color: #b7bcaf; font-size: .85rem; }
+
+.clue-classification-palette .classification-suspect i { color: #e74848; }
+.clue-classification-palette .classification-friendly i { color: #4db663; }
+.clue-classification-palette .classification-witness i { color: #45a6e8; }
+.clue-classification-palette .classification-victim i { color: #f3cf45; }
+
+.clue-dashboard-shell { display: grid; gap: .75rem; padding: .75rem; }
+.clue-dashboard-header { display: flex; justify-content: space-between; align-items: start; gap: 1rem; }
+.clue-dashboard-header h2 { margin: 0; }
+.clue-dashboard-header .hint { margin: .25rem 0 0; }
+.clue-dashboard-audience { display: grid; gap: .25rem; font-weight: 700; min-width: 12rem; }
+.clue-dashboard-actions { display: grid; gap: .35rem; padding: .6rem; border: 1px solid var(--color-border-light-2); border-radius: 4px; background: color-mix(in srgb, var(--color-cool-5) 35%, transparent); }
+.clue-dashboard-actions .action-group { display: flex; flex-wrap: wrap; align-items: center; gap: .3rem; }
+.clue-dashboard-actions .action-group > span { width: 11rem; color: var(--color-text-light-heading); font-size: .82rem; font-weight: 700; }
+.clue-dashboard-actions button { min-height: 1.75rem; padding: .2rem .45rem; font-size: .78rem; }
+.clue-dashboard-list { border: 1px solid var(--color-border-light-2); border-radius: 4px; overflow: hidden; }
+.clue-dashboard-list-header, .clue-dashboard-row { display: grid; grid-template-columns: minmax(18rem, 2fr) minmax(6rem, .7fr) minmax(8rem, .9fr) minmax(12rem, 1.3fr); gap: .65rem; align-items: center; padding: .55rem .7rem; }
+.clue-dashboard-list-header { background: var(--color-cool-5); color: var(--color-text-light-heading); font-size: .78rem; font-weight: 700; text-transform: uppercase; }
+.clue-dashboard-row { border-top: 1px solid var(--color-border-light-2); }
+.clue-dashboard-row:nth-child(odd) { background: color-mix(in srgb, var(--color-cool-5) 18%, transparent); }
+.clue-dashboard-entry { display: flex; gap: .5rem; align-items: start; min-width: 0; }
+.clue-dashboard-entry strong, .clue-dashboard-entry small, .journal-name { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.clue-dashboard-entry small, .journal-name, .mixed-label { color: var(--color-text-light-6); font-size: .78rem; }
+.journal-name { margin-top: .15rem; }
+.journal-name.missing { color: var(--color-level-error); }
+.dashboard-status, .ownership-status { display: inline-block; font-size: .78rem; font-weight: 700; }
+.dashboard-status.visible { color: var(--color-level-success); }
+.dashboard-status.hidden { color: var(--color-level-error); }
+.dashboard-status.mixed { color: var(--color-level-warning); }
+.ownership-status.inherit, .ownership-action.inherit { color: #56a9e8; }
+.ownership-status.gm-only, .ownership-action.gm-only { color: #e65353; }
+.ownership-status.limited, .ownership-action.limited { color: #e5bb36; }
+.ownership-status.player-read, .ownership-action.player-read { color: #62b979; }
+.ownership-status.player-write, .ownership-action.player-write { color: #be78dc; }
+.ownership-action { border-color: currentColor; }
+.journal-selection { display: inline-flex; align-items: center; gap: .35rem; cursor: pointer; }
+.mixed-label { margin-left: .35rem; }
+.pages-toggle { width: 100%; text-align: left; white-space: normal; }
+.clue-dashboard-pages { grid-column: 1 / -1; display: grid; gap: .3rem; margin: .1rem 0 .1rem 1.8rem; padding: .5rem; border-left: 2px solid var(--color-border-light-2); }
+.clue-dashboard-page { display: grid; grid-template-columns: auto 1fr auto auto; gap: .5rem; align-items: center; }
+.clue-dashboard-additional h3 { margin: 0; padding: .6rem .7rem; background: var(--color-cool-5); font-size: .9rem; }
+.clue-dashboard-additional .additional-row { grid-template-columns: minmax(18rem, 2fr) minmax(6rem, .7fr) minmax(8rem, .9fr) minmax(12rem, 1.3fr); }
+.clue-dashboard-empty { padding: .75rem; border: 1px dashed var(--color-border-light-2); }
+
+@media (max-width: 700px) {
+  .clue-dashboard-header { display: grid; }
+  .clue-dashboard-list-header { display: none; }
+  .clue-dashboard-row, .clue-dashboard-additional .additional-row { grid-template-columns: 1fr; gap: .35rem; }
+  .clue-dashboard-row > span:empty { display: none; }
+}

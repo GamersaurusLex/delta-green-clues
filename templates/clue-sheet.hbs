@@ -8,11 +8,20 @@
   </header>
 
   <section class="clue-sheet-body">
+    <label class="clue-label" for="clue-board-category">Investigation Board Category</label>
+    {{#if editable}}
+      <select id="clue-board-category" name="flags.delta-green-clues.boardCategory">
+        {{selectOptions boardCategories selected=clueBoardCategory}}
+      </select>
+    {{else}}
+      <p class="clue-linked-name">{{lookup (lookup boardCategories clueBoardCategory) "label"}}</p>
+    {{/if}}
+
     <label class="clue-label" for="clue-handout">{{localize "DGCLUES.Sheet.Handout"}}</label>
     {{#if editable}}
-      <select id="clue-handout" name="system.linkedJournalUuid">
+      <select id="clue-handout" name="{{linkedJournalField}}">
         <option value="">{{localize "DGCLUES.Sheet.SelectHandout"}}</option>
-        {{selectOptions journalOptions selected=actor.system.linkedJournalUuid}}
+        {{selectOptions journalOptions selected=linkedJournalUuid}}
       </select>
     {{else}}
       <p class="clue-linked-name">{{#if linkedJournalName}}{{linkedJournalName}}{{else}}{{localize "DGCLUES.Sheet.NoHandout"}}{{/if}}</p>

@@ -1,0 +1,106 @@
+<section class="clue-dashboard-shell">
+  <header class="clue-dashboard-header">
+    <div>
+      <h2>Clue Dashboard</h2>
+      <p class="hint">Murderboards: {{murderboards}}</p>
+    </div>
+    <label class="clue-dashboard-audience">Audience
+      <select name="audience">
+        {{#each audienceOptions}}<option value="{{id}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}
+      </select>
+    </label>
+  </header>
+
+  <section class="clue-dashboard-actions">
+    <div class="action-group">
+      <span>Selected clue tokens</span>
+      <button type="button" data-action="showTokens"><i class="fa-solid fa-eye"></i> Show</button>
+      <button type="button" data-action="hideTokens"><i class="fa-solid fa-eye-slash"></i> Hide</button>
+    </div>
+    <div class="action-group">
+      <span>Selected entries</span>
+      {{#each levels}}<button type="button" data-action="setEntryOwnership" data-level="{{value}}" class="ownership-action {{cssClass}}">{{label}}</button>{{/each}}
+    </div>
+    <div class="action-group">
+      <span>All pages of selected entries</span>
+      {{#each levels}}<button type="button" data-action="setAllPagesOwnership" data-level="{{value}}" class="ownership-action {{cssClass}}">{{label}}</button>{{/each}}
+    </div>
+    <div class="action-group">
+      <span>Selected pages</span>
+      {{#each levels}}<button type="button" data-action="setPageOwnership" data-level="{{value}}" class="ownership-action {{cssClass}}">{{label}}</button>{{/each}}
+      <button type="button" data-action="clearSelection"><i class="fa-solid fa-xmark"></i> Clear selection</button>
+    </div>
+  </section>
+
+  {{#if hasRows}}
+  <section class="clue-dashboard-list">
+    <header class="clue-dashboard-list-header">
+      <label><input type="checkbox" data-action="toggleAllClues"> All clue tokens</label>
+      <span>Clue / Journal Entry</span><span>Token visibility</span><span>Journal ownership</span><span>Pages</span>
+    </header>
+    {{#each rows}}
+    <article class="clue-dashboard-row">
+      <div class="clue-dashboard-entry">
+        <label><input type="checkbox" value="{{key}}" data-action="toggleClue" {{checked selected}}></label>
+        <div>
+          <strong>{{actor.name}}</strong>
+          <small>{{sceneNames}} · {{tokenCount}} {{tokenLabel}}</small>
+          {{#if journal}}<span class="journal-name"><i class="fa-solid fa-book-open"></i> {{journal.name}}</span>{{else}}<span class="journal-name missing">No linked Journal Entry</span>{{/if}}
+        </div>
+      </div>
+      <span class="dashboard-status {{visibilityClass}}">{{visibility}}</span>
+      <span>
+        {{#if entryStatus}}
+        <label class="journal-selection" data-tooltip aria-label="Select Journal Entry for ownership changes">
+          <input type="checkbox" value="{{journal.id}}" data-action="toggleEntry" {{checked journalSelected}}>
+          <span class="ownership-status {{entryStatus.cssClass}}">{{entryStatus.label}}</span>
+        </label>{{#if entryMixed}}<small class="mixed-label">Mixed</small>{{/if}}{{else}}—{{/if}}
+      </span>
+      <span>
+        {{#if journal}}<button type="button" data-action="togglePages" data-entry-id="{{journal.id}}" class="pages-toggle"><i class="fa-solid {{#if expanded}}fa-chevron-down{{else}}fa-chevron-right{{/if}}"></i> {{pageSummary}}</button>{{else}}—{{/if}}
+      </span>
+      {{#if expanded}}
+      <div class="clue-dashboard-pages">
+        {{#each pages}}
+        <label class="clue-dashboard-page">
+          <input type="checkbox" value="{{uuid}}" data-action="togglePage" {{checked selected}}>
+          <span>{{name}}</span>
+          <span class="ownership-status {{status.cssClass}}">{{status.label}}</span>{{#if mixed}}<small class="mixed-label">Mixed</small>{{/if}}
+        </label>
+        {{/each}}
+      </div>
+      {{/if}}
+    </article>
+    {{/each}}
+  </section>
+  {{else}}
+  <p class="hint clue-dashboard-empty">No Clue tokens were found on marked Murderboard scenes. Mark a scene in Scene Configuration to include it here.</p>
+  {{/if}}
+
+  {{#if hasAdditionalJournals}}
+  <section class="clue-dashboard-list clue-dashboard-additional">
+    <h3>Additional Journal Entries</h3>
+    {{#each additionalJournals}}
+    <article class="clue-dashboard-row additional-row">
+      <div class="clue-dashboard-entry">
+        <label><input type="checkbox" value="{{journal.id}}" data-action="toggleEntry" {{checked selected}}></label>
+        <div><strong>{{journal.name}}</strong><small>Dashboard source folder</small></div>
+      </div>
+      <span></span>
+      <span><span class="ownership-status {{entryStatus.cssClass}}">{{entryStatus.label}}</span>{{#if entryMixed}}<small class="mixed-label">Mixed</small>{{/if}}</span>
+      <span><button type="button" data-action="togglePages" data-entry-id="{{journal.id}}" class="pages-toggle"><i class="fa-solid {{#if expanded}}fa-chevron-down{{else}}fa-chevron-right{{/if}}"></i> {{pageSummary}}</button></span>
+      {{#if expanded}}
+      <div class="clue-dashboard-pages">
+        {{#each pages}}
+        <label class="clue-dashboard-page">
+          <input type="checkbox" value="{{uuid}}" data-action="togglePage" {{checked selected}}>
+          <span>{{name}}</span><span class="ownership-status {{status.cssClass}}">{{status.label}}</span>{{#if mixed}}<small class="mixed-label">Mixed</small>{{/if}}
+        </label>
+        {{/each}}
+      </div>
+      {{/if}}
+    </article>
+    {{/each}}
+  </section>
+  {{/if}}
+</section>

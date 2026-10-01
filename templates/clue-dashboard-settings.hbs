@@ -1,0 +1,19 @@
+<form class="standard-form">
+  <p class="hint">These folders supplement linked clue journals everywhere in the world. Subfolders are included automatically.</p>
+  {{#if folders.length}}
+  <fieldset>
+    <legend>Journal folders</legend>
+    {{#each folders}}
+    <label class="checkbox">
+      <input type="checkbox" name="folderIds" value="{{id}}" {{checked selected}}>
+      {{name}}
+    </label>
+    {{/each}}
+  </fieldset>
+  {{else}}
+  <p class="hint">There are no Journal Entry folders in this world.</p>
+  {{/if}}
+  <footer class="form-footer">
+    <button type="button" data-action="save"><i class="fa-solid fa-floppy-disk"></i> Save sources</button>
+  </footer>
+</form>

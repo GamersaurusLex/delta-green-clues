@@ -1,10 +1,25 @@
 # Clues
 
+## Investigation-board question notes
+
+The Drawing Controls toolbar includes native **Create Sticky Note** and **Create Index Card** buttons. Both create a linked native Tile and editable Foundry Drawing: the Tile supplies scalable paper art while the Drawing keeps the question text editable. Moving, resizing, or deleting either member of the pair updates the other.
+
+The Drawing's writing area is inset from the paper artwork, preserving safe margins. Set the campaign default under **Question Note Text Inset** in the module settings; an individual note can override it on the native Drawing Configuration's Fill tab. Reducing a note's size automatically reduces its Drawing font as needed; the note does not grow back merely because its prior font size no longer fits.
+
+- Sticky Notes: Blue, Green, Light Yellow, Peach, Pink, Purple, White, or Yellow; Flat or Flip.
+- Index Cards: Blue, Green, Pink, Purple, White, or Yellow; Blank, Coffee Stains, or Grunge.
+
+Choose the starting selection in the module's world settings. To change one existing question note, open its native Drawing Configuration sheet and use its appearance fields on the Fill tab.
+
+Select a question note and use the pencil button on its native Drawing HUD to edit its text in a multiline editor. Foundry's ordinary Drawing Configuration remains available for its font, size, color, and other placement controls.
+
+The linked paper automatically grows as needed to retain a visible writing gutter on all four sides of the text. This same minimum is enforced if either the Drawing or its Tile is resized.
+
 Clues adds **Clue** as a native Actor type in Foundry VTT 14. It lets an ordinary Foundry scene serve as an investigation board: create Clues in the normal Actors directory, link each one to a Journal Entry or Journal Page, then drag them onto any scene as ordinary tokens.
 
 ## What it does
 
-- Registers a persistent `Clue` Actor subtype without changing system files.
+- Registers a persistent `Clue` Actor subtype where the active system permits it. PF2e explicitly disallows module-defined Actor subtypes, so there Clues are created as native NPC Actors marked internally as Clues; the Actors directory, ownership, tokens, clue sheet, and player workflow remain the same.
 - Provides a compact clue-card sheet with a linked-handout picker and an **Open Handout** control.
 - Uses Foundry’s ordinary Actor ownership, folder, search, duplicate, delete, token, and visibility behaviors.
 - Supports any number of tokens for a clue across any number of scenes.
@@ -25,4 +40,4 @@ Double-clicking a Clue token opens its linked handout instead of the clue-card s
 ## Compatibility
 
 - Foundry VTT 14
-- Any Foundry VTT game system that supports Foundry's standard Actor and Token documents
+- Any Foundry VTT game system that supports Foundry's standard Actor and Token documents. Systems that reject module Actor subtypes use a compatible native-Actor fallback.

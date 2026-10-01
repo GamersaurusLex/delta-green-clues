@@ -1,0 +1,28 @@
+<div class="col left">
+    <div class="attribute elevation" data-tooltip aria-label="{{localize "HUD.Elevation"}}">
+        <i class="caret fa-solid fa-angle-up" inert></i>
+        <input type="text" name="elevation" value="{{elevation}}" {{disabled (or locked (and isGamePaused (not isGM)))}}>
+    </div>
+    <button type="button" class="control-icon" data-action="sort" data-tooltip aria-label="{{localize "HUD.ToFrontOrBack"}}">
+        <i class="fa-solid fa-bring-forward" inert></i>
+    </button>
+</div>
+
+<div class="col middle">
+</div>
+
+<div class="col right">
+    <button type="button" class="control-icon {{visibilityClass}}" data-action="visibility"
+        data-tooltip aria-label="{{localize (ifThen visibilityClass "HUD.Show" "HUD.Hide")}}">
+        <i class="fa-solid {{ifThen hidden "fa-eye-slash" "fa-eye"}}" inert></i>
+    </button>
+    {{#if isQuestionNote}}
+    <button type="button" class="control-icon" data-action="editQuestionText" data-tooltip aria-label="Edit Question Note Text">
+        <i class="fa-solid fa-pencil" inert></i>
+    </button>
+    {{/if}}
+    <button type="button" class="control-icon {{lockedClass}}" data-action="locked"
+        data-tooltip aria-label="{{localize (ifThen lockedClass "HUD.Unlock" "HUD.Lock")}}">
+        <i class="fa-solid {{ifThen locked "fa-lock" "fa-lock-open"}}" inert></i>
+    </button>
+</div>

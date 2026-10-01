@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.24 — 2026-10-01
+
+- Aligned each expanded Journal page's ownership status beside its page title in the Dashboard's third column.
+
 ## 0.3.23 — 2026-10-01
 
 - Made Dashboard columns stable, labeled hidden clues explicitly, and moved Select all/Deselect all above the table.

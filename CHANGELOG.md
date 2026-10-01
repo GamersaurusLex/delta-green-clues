@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.22 — 2026-10-01
+
+- Corrected the Clue Dashboard grid so selection, clue/journal, token visibility, Journal ownership, and page controls occupy matching columns.
+
 ## 0.3.21 — 2026-10-01
 
 - Made the Clue Dashboard's clue list independently scrollable while keeping its audience selector and bulk-action controls visible.

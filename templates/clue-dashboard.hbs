@@ -41,13 +41,11 @@
     </header>
     {{#each rows}}
     <article class="clue-dashboard-row">
+      <label class="clue-dashboard-select"><input type="checkbox" value="{{key}}" data-action="toggleClue" {{checked selected}}></label>
       <div class="clue-dashboard-entry">
-        <label><input type="checkbox" value="{{key}}" data-action="toggleClue" {{checked selected}}></label>
-        <div>
-          <strong>{{actor.name}}</strong>
-          <small>{{sceneNames}} · {{tokenCount}} {{tokenLabel}}</small>
-          {{#if journal}}<span class="journal-name"><i class="fa-solid fa-book-open"></i> {{journal.name}}</span>{{else}}<span class="journal-name missing">No linked Journal Entry</span>{{/if}}
-        </div>
+        <strong>{{actor.name}}</strong>
+        <small>{{sceneNames}} · {{tokenCount}} {{tokenLabel}}</small>
+        {{#if journal}}<span class="journal-name"><i class="fa-solid fa-book-open"></i> {{journal.name}}</span>{{else}}<span class="journal-name missing">No linked Journal Entry</span>{{/if}}
       </div>
       <span class="dashboard-status {{visibilityClass}}">{{visibility}}</span>
       <span>
@@ -83,11 +81,11 @@
     <h3>Additional Journal Entries</h3>
     {{#each additionalJournals}}
     <article class="clue-dashboard-row additional-row">
+      <label class="clue-dashboard-select"><input type="checkbox" value="{{journal.id}}" data-action="toggleEntry" {{checked selected}}></label>
       <div class="clue-dashboard-entry">
-        <label><input type="checkbox" value="{{journal.id}}" data-action="toggleEntry" {{checked selected}}></label>
-        <div><strong>{{journal.name}}</strong><small>Dashboard source folder</small></div>
+        <strong>{{journal.name}}</strong><small>Dashboard source folder</small>
       </div>
-      <span></span>
+      <span>—</span>
       <span><span class="ownership-status {{entryStatus.cssClass}}">{{entryStatus.label}}</span>{{#if entryMixed}}<small class="mixed-label">Mixed</small>{{/if}}</span>
       <span><button type="button" data-action="togglePages" data-entry-id="{{journal.id}}" class="pages-toggle"><i class="fa-solid {{#if expanded}}fa-chevron-down{{else}}fa-chevron-right{{/if}}"></i> {{pageSummary}}</button></span>
       {{#if expanded}}

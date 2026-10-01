@@ -38,7 +38,7 @@ class ClueDataModel extends foundry.abstract.TypeDataModel {
 }
 
 function canEditDocument(document) {
-  return game.user.isGM || document?.testUserPermission(game.user, "OWNER");
+  return game.user.isGM || document?.testUserPermission(game.user, CONST.DOCUMENT_OWNERSHIP_LEVELS.OWNER);
 }
 
 /**
@@ -214,7 +214,7 @@ async function openLinkedHandout(actor) {
   const uuid = linkedJournalUuid(actor);
   if (!uuid) return ui.notifications.warn("This clue has no linked handout.");
   const linked = await fromUuid(uuid);
-  if (!linked || !linked.testUserPermission(game.user, "OBSERVER")) {
+  if (!linked || !linked.testUserPermission(game.user, CONST.DOCUMENT_OWNERSHIP_LEVELS.OBSERVER)) {
     return ui.notifications.warn("You do not have permission to view this clue's linked handout.");
   }
   linked.sheet.render(true);
@@ -246,7 +246,7 @@ class ClueSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     let linkedJournalName = "";
     if (uuid) {
       const linked = await fromUuid(uuid);
-      if (linked && linked.testUserPermission(game.user, "OBSERVER")) {
+      if (linked && linked.testUserPermission(game.user, CONST.DOCUMENT_OWNERSHIP_LEVELS.OBSERVER)) {
         linkedJournalName = linked.documentName === "JournalEntryPage" ? `${linked.parent.name} — ${linked.name}` : linked.name;
       }
     }

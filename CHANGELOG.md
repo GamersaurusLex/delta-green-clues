@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.27 — 2026-10-01
+
+- Fixed the Clue Sheet's Open Handout control for Player-Read Journal Entries by using Foundry v14's native ownership-level constants.
+
 ## 0.3.26 — 2026-10-01
 
 - Keep the Clue Dashboard's internal scroll position when expanding or collapsing a Journal Entry's page list.

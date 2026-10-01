@@ -3,10 +3,10 @@
   "id": "delta-green-clues",
   "title": "Clues",
   "description": "Adds Clue as a native Actor type for Foundry VTT investigation boards.",
-  "version": "0.3.26",
+  "version": "0.3.27",
   "url": "https://github.com/GamersaurusLex/delta-green-clues",
   "manifest": "https://github.com/GamersaurusLex/delta-green-clues/releases/latest/download/module.json",
-  "download": "https://github.com/GamersaurusLex/delta-green-clues/releases/download/v0.3.26/delta-green-clues-v0.3.26.zip",
+  "download": "https://github.com/GamersaurusLex/delta-green-clues/releases/download/v0.3.27/delta-green-clues-v0.3.27.zip",
   "authors": [{ "name": "Gamersaurus Lex" }],
   "compatibility": { "minimum": "14", "verified": "14", "maximum": "14" },
   "documentTypes": {

@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.3.23 — 2026-10-01
+
+- Made Dashboard columns stable, labeled hidden clues explicitly, and moved Select all/Deselect all above the table.
+- Added a world setting to hide clue scene and token-count context when it is not useful.
+
 ## 0.3.22 — 2026-10-01
 
 - Corrected the Clue Dashboard grid so selection, clue/journal, token visibility, Journal ownership, and page controls occupy matching columns.

@@ -52,10 +52,12 @@
 .clue-dashboard-actions .action-group { display: flex; flex-wrap: wrap; align-items: center; gap: .3rem; }
 .clue-dashboard-actions .action-group > span { width: 11rem; color: var(--color-text-light-heading); font-size: .82rem; font-weight: 700; }
 .clue-dashboard-actions button { min-height: 1.75rem; padding: .2rem .45rem; font-size: .78rem; }
-.clue-dashboard-content { min-height: 0; overflow-y: auto; scrollbar-gutter: stable; }
+.clue-dashboard-content { min-height: 0; overflow: auto; scrollbar-gutter: stable; }
+.clue-dashboard-selection { display: flex; gap: 1rem; align-items: center; margin-bottom: .5rem; padding: 0 .2rem; font-size: .82rem; font-weight: 700; }
+.clue-dashboard-selection label { display: inline-flex; align-items: center; gap: .35rem; cursor: pointer; }
 .clue-dashboard-list { border: 1px solid var(--color-border-light-2); border-radius: 4px; overflow: hidden; }
 .clue-dashboard-content > .clue-dashboard-list + .clue-dashboard-list { margin-top: .75rem; }
-.clue-dashboard-list-header, .clue-dashboard-row { display: grid; grid-template-columns: auto minmax(18rem, 2fr) minmax(6rem, .7fr) minmax(8rem, .9fr) minmax(12rem, 1.3fr); gap: .65rem; align-items: center; padding: .55rem .7rem; }
+.clue-dashboard-list-header, .clue-dashboard-row { display: grid; grid-template-columns: 1.5rem minmax(18rem, 1fr) 8rem 11rem 17rem; gap: .65rem; align-items: center; min-width: 57rem; padding: .55rem .7rem; }
 .clue-dashboard-list-header { background: var(--color-cool-5); color: var(--color-text-light-heading); font-size: .78rem; font-weight: 700; text-transform: uppercase; }
 .clue-dashboard-row { border-top: 1px solid var(--color-border-light-2); }
 .clue-dashboard-row:nth-child(odd) { background: color-mix(in srgb, var(--color-cool-5) 18%, transparent); }
@@ -67,7 +69,7 @@
 .journal-name.missing { color: var(--color-level-error); }
 .dashboard-status, .ownership-status { display: inline-block; font-size: .78rem; font-weight: 700; }
 .dashboard-status.visible { color: var(--color-level-success); }
-.dashboard-status.hidden { color: var(--color-level-error); }
+.dashboard-status.is-hidden { color: var(--color-level-error); }
 .dashboard-status.mixed { color: var(--color-level-warning); }
 .ownership-status.inherit, .ownership-action.inherit { color: #56a9e8; }
 .ownership-status.gm-only, .ownership-action.gm-only { color: #e65353; }
@@ -81,7 +83,7 @@
 .clue-dashboard-pages { grid-column: 1 / -1; display: grid; gap: .3rem; margin: .1rem 0 .1rem 1.8rem; padding: .5rem; border-left: 2px solid var(--color-border-light-2); }
 .clue-dashboard-page { display: grid; grid-template-columns: auto 1fr auto auto; gap: .5rem; align-items: center; }
 .clue-dashboard-additional h3 { margin: 0; padding: .6rem .7rem; background: var(--color-cool-5); font-size: .9rem; }
-.clue-dashboard-additional .additional-row { grid-template-columns: auto minmax(18rem, 2fr) minmax(6rem, .7fr) minmax(8rem, .9fr) minmax(12rem, 1.3fr); }
+.clue-dashboard-additional .additional-row { grid-template-columns: 1.5rem minmax(18rem, 1fr) 8rem 11rem 17rem; }
 .clue-dashboard-empty { padding: .75rem; border: 1px dashed var(--color-border-light-2); }
 
 @media (max-width: 700px) {

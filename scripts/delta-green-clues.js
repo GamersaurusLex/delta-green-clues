@@ -23,6 +23,7 @@ const INDEX_CARD_STYLE_SETTING = "indexCardStyle";
 const QUESTION_NOTE_TEXT_INSET_SETTING = "questionNoteTextInset";
 const MURDERBOARD_FLAG = "isMurderboard";
 const DASHBOARD_FOLDER_IDS_SETTING = "dashboardFolderIds";
+const DASHBOARD_SHOW_CLUE_CONTEXT_SETTING = "dashboardShowClueContext";
 const { ApplicationV2, HandlebarsApplicationMixin, DialogV2 } = foundry.applications.api;
 const DEFAULT_QUESTION_NOTE_TEXT_INSET = 20;
 const { StringField } = foundry.data.fields;
@@ -1044,6 +1045,7 @@ class ClueDashboard extends HandlebarsApplicationMixin(ApplicationV2) {
       togglePage: ClueDashboard.togglePage,
       togglePages: ClueDashboard.togglePages,
       toggleAllClues: ClueDashboard.toggleAllClues,
+      clearAllClues: ClueDashboard.clearAllClues,
       showTokens: ClueDashboard.showTokens,
       hideTokens: ClueDashboard.hideTokens,
       setEntryOwnership: ClueDashboard.setEntryOwnership,
@@ -1076,7 +1078,7 @@ class ClueDashboard extends HandlebarsApplicationMixin(ApplicationV2) {
         journal,
         selected: this.selectedClues.has(record.key),
         visibility: visible === record.tokens.length ? "Visible" : visible === 0 ? "Hidden" : "Mixed",
-        visibilityClass: visible === record.tokens.length ? "visible" : visible === 0 ? "hidden" : "mixed",
+        visibilityClass: visible === record.tokens.length ? "visible" : visible === 0 ? "is-hidden" : "mixed",
         tokenCount: record.tokens.length,
         tokenLabel: `token${record.tokens.length === 1 ? "" : "s"}`,
         sceneNames: [...record.scenes].join(", "),
@@ -1121,7 +1123,9 @@ class ClueDashboard extends HandlebarsApplicationMixin(ApplicationV2) {
       levels: CLUE_OWNERSHIP_LEVELS,
       audience: this.audience,
       audienceOptions: [{ id: "default", label: "All Players", selected: this.audience === "default" }, ...dashboardPlayers().map((player) => ({ id: player.id, label: player.name, selected: this.audience === player.id }))],
-      hasRows: rows.length > 0
+      hasRows: rows.length > 0,
+      allCluesSelected: rows.length > 0 && rows.every((row) => this.selectedClues.has(row.key)),
+      showClueContext: game.settings.get(MODULE_ID, DASHBOARD_SHOW_CLUE_CONTEXT_SETTING)
     };
   }
 
@@ -1155,6 +1159,11 @@ class ClueDashboard extends HandlebarsApplicationMixin(ApplicationV2) {
     const rows = await this._prepareContext();
     if (target.checked) rows.rows.forEach((row) => this.selectedClues.add(row.key));
     else this.selectedClues.clear();
+    await this.render();
+  }
+
+  static async clearAllClues() {
+    this.selectedClues.clear();
     await this.render();
   }
 
@@ -1226,6 +1235,14 @@ Hooks.once("init", () => {
     config: false,
     type: Array,
     default: []
+  });
+  game.settings.register(MODULE_ID, DASHBOARD_SHOW_CLUE_CONTEXT_SETTING, {
+    name: "Show Clue Dashboard context",
+    hint: "Show each clue's murderboard scene and token count beneath its name in the Clue Dashboard.",
+    scope: "world",
+    config: true,
+    type: Boolean,
+    default: true
   });
   game.settings.registerMenu(MODULE_ID, "dashboardSources", {
     name: "Clue Dashboard sources",

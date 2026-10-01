@@ -34,9 +34,13 @@
 
   <section class="clue-dashboard-content">
   {{#if hasRows}}
+  <section class="clue-dashboard-selection" aria-label="Clue selection">
+    <label><input type="checkbox" data-action="toggleAllClues" {{checked allCluesSelected}}> Select all</label>
+    <label><input type="checkbox" data-action="clearAllClues"> Deselect all</label>
+  </section>
   <section class="clue-dashboard-list">
     <header class="clue-dashboard-list-header">
-      <label><input type="checkbox" data-action="toggleAllClues"> All clue tokens</label>
+      <span aria-hidden="true"></span>
       <span>Clue / Journal Entry</span><span>Token visibility</span><span>Journal ownership</span><span>Pages</span>
     </header>
     {{#each rows}}
@@ -44,7 +48,7 @@
       <label class="clue-dashboard-select"><input type="checkbox" value="{{key}}" data-action="toggleClue" {{checked selected}}></label>
       <div class="clue-dashboard-entry">
         <strong>{{actor.name}}</strong>
-        <small>{{sceneNames}} · {{tokenCount}} {{tokenLabel}}</small>
+        {{#if ../showClueContext}}<small>{{sceneNames}} · {{tokenCount}} {{tokenLabel}}</small>{{/if}}
         {{#if journal}}<span class="journal-name"><i class="fa-solid fa-book-open"></i> {{journal.name}}</span>{{else}}<span class="journal-name missing">No linked Journal Entry</span>{{/if}}
       </div>
       <span class="dashboard-status {{visibilityClass}}">{{visibility}}</span>

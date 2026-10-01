@@ -1064,6 +1064,7 @@ class ClueDashboard extends HandlebarsApplicationMixin(ApplicationV2) {
     this.selectedPages = new Set();
     this.expandedEntries = new Set();
     this.audience = "default";
+    this.contentScrollTop = null;
   }
 
   async _prepareContext() {
@@ -1131,6 +1132,11 @@ class ClueDashboard extends HandlebarsApplicationMixin(ApplicationV2) {
 
   _onRender(context, options) {
     super._onRender(context, options);
+    const content = this.element.querySelector(".clue-dashboard-content");
+    if (this.contentScrollTop !== null && content) {
+      content.scrollTop = this.contentScrollTop;
+      this.contentScrollTop = null;
+    }
     this.element.querySelector('[name="audience"]')?.addEventListener("change", async (event) => {
       this.audience = event.currentTarget.value;
       await this.render();
@@ -1151,6 +1157,7 @@ class ClueDashboard extends HandlebarsApplicationMixin(ApplicationV2) {
 
   static async togglePages(_event, target) {
     const id = target.dataset.entryId;
+    this.contentScrollTop = this.element.querySelector(".clue-dashboard-content")?.scrollTop ?? 0;
     this.expandedEntries.has(id) ? this.expandedEntries.delete(id) : this.expandedEntries.add(id);
     await this.render();
   }

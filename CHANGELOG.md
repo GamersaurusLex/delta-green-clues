@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.26 — 2026-10-01
+
+- Keep the Clue Dashboard's internal scroll position when expanding or collapsing a Journal Entry's page list.
+
 ## 0.3.25 — 2026-10-01
 
 - Swapped the Dashboard's Journal ownership and Token visibility columns, keeping page ownership beside the page title.

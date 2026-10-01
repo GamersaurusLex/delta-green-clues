@@ -265,6 +265,11 @@ class ClueSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     };
   }
 
+  _toggleDisabled(disabled) {
+    super._toggleDisabled(disabled);
+    this.element.querySelector(".clue-open-handout")?.toggleAttribute("disabled", !linkedJournalUuid(this.actor));
+  }
+
   static async openHandout(_event, target) {
     return openLinkedHandout(this.actor);
   }

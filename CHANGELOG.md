@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.28 — 2026-10-01
+
+- Keep Open Handout enabled on read-only Clue Sheets when a linked Journal exists, while retaining Foundry's normal read-only behavior for every editable control.
+
 ## 0.3.27 — 2026-10-01
 
 - Fixed the Clue Sheet's Open Handout control for Player-Read Journal Entries by using Foundry v14's native ownership-level constants.
